@@ -21,10 +21,47 @@ enc = open('flag.enc', 'w')
 enc.write(xor(u, v))
 enc.close()
 ```
-
-and we have a binary file containing some binary data which is produced from code above
+And we have a binary [file](flag.enc) containing some binary data which has been produced from code above
 
 ## solution overview
 
+Ok we have some known binary data which has been produced by this line of code(xor function):
+```python
+''.join(chr(ord(cu) ^ ord(cv)) for cu, cv in zip(u, v))
+```
+as you can see `u` and `v` in `zip(u, v)` are produced by this lines of code:
+```python
+u = flag
+v = flag[1:] + flag[0]
+```
+this simply means if we have a flag like this `S4CTF{some_l33t_string_l1k3_7hi5}` the `u` is the flag itself and `v` is being produced by cutting the first character of the flag and moving it to the end: `4CTF{some_l33t_string_l1k3_7hi5}S`
+
+## what is the xor function doing?
+
+the xor function in a loop takes the nth character of `u` and the nth character of `v` (i mean ascii code) and XOR-s them together and finally joins the whole result. in the case of above flag the xor function will first XOR 'S' and '4' together and then XOR '4' and 'C' together and so on.
+Ok now we know how the xor function works let's cut to the chase.
+
+## flag
+
+the flag definitely contains these characters `S4CTF{...}` so by performing the xor function on this characters`S4CTF` we'll arrive at this result: `gw^W^R=` and if you take a look at this [file](flag.enc) you will notice this pattern in the middle. so as you might guess the flag is looks like this:`some dummy string S4CTF{...}`
+
+The key point for solving this is that if we have two numbers let's say `A` and `B`:`if A xor B = C => A xor C = B` so by knowing this we can solve the challenge using the script below:
+```python
+
+file = open('flag.enc', 'rb')
+
+flag = file.read()
+file.close()
+
+flag = flag[13:] + flag[0:13] 
 
 
+temp = ord('S')
+
+for i in range(len(flag)):
+    print(chr(temp),end='')
+    temp = temp ^ flag[i]
+```
+
+and finaly the flag is:
+`S4CTF{XOR_x0r_XoR_X0r_xOr!!!}`
