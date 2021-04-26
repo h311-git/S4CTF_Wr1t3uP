@@ -76,7 +76,7 @@ the result is:
 ```text
 zS4CTFYrO0C}_yr5t7{_P34_fsr_wk4um!ap
 ```
-At the first sight Is it obvious that the flag characters is shuffled.
+At the first sight it is obvious that the flag characters is shuffled.
 OK let's use a dummy flag `S4CTF{some_l33t_string_l1k3_7hi5}` to see what the pad function is doing. the result is:
 ```python
 [[116, 118, 70, 83, 52, 67], [84, 70, 123, 115, 111, 109], [101, 95, 108, 51, 51, 116], [95, 115, 116, 114, 105, 110], [103, 95, 108, 49, 107, 51], [95, 55, 104, 105, 53, 125]]
@@ -99,17 +99,23 @@ and:
 tvFS4Co_t_e}ml_r3sTn3F3_gsl1ki{h75ti
 ```
 
-we can see the encrypt function just shuffles the flag. looks like we have to read all the code to know what this function is doing but wait! if you think about it the encrypt function is 
+we can see the encrypt function just shuffles the flag. looks like we have to read all the code to know what this function is doing but wait! if you think about it 🤔 the encrypt function is 
 just shuffling the given list. so it might be possible that this process goes around a loop this means after some round we could have the flag so let's try it:
 
 ```python
 enc = [[122, 83, 52, 67, 84, 70], [89, 114, 79, 48, 67, 125], [95, 121, 114, 53, 116, 55], [123, 95, 80, 51, 52, 95], [102, 115, 114, 95, 119, 107], [52, 117, 109, 33, 97, 112]]
 
 
-for i in range(1000):
+for i in range(33):
 	for _ in range(len(enc)):
 		_ = encrypt(enc)
 		enc = _
+	print(i)
+	for k in enc:
+		for j in k:
+			print(chr(j), end='')
+	
+	print('\n')
 ```
 
 and the result is:
