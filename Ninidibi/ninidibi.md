@@ -69,10 +69,13 @@ Yeah we guessed right as you can see the first 6 bytes is missing in file signat
 ninidibi: SQLite 3.x database, last written using SQLite version 3031001
 
 ```
-Ok let's open it with `sqlite3` command:
+Ok let's open it with `sqlite3` command and see how many tables we have:
 
+![tablesList](table_list.png)
 
-we have 2 tables here `flag`
+as you can see we have 2 tables here `flag` and `orders` let's see the table contents:
+
+![tableContents](table_contents.png)
 
 
 
