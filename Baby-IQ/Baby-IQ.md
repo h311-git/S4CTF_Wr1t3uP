@@ -85,7 +85,7 @@ And if we convert this ascii codes to string we have:
 ```
 tvFS4CTF{some_l33t_string_l1k3_7hi5}
 ```
-It seems the pad function takes the flag and adds some random string to the first of it and finally convert it to a list of lists which each list contains six ascii codes.
+It seems the pad function takes the flag and adds some random strings to the first of it and finally convert it to a list of lists which each list contains six ascii codes.
 let's perfom the encrypt function on that to see what happens(i mean that for loop):
 
 the result is:
@@ -99,7 +99,7 @@ and:
 tvFS4Co_t_e}ml_r3sTn3F3_gsl1ki{h75ti
 ```
 
-we can see the encrypt function just shuffles the flag. looks like we have to read all the code to know what this function is doing :sleeping: but wait! if you think about it 🤔 the encrypt function is 
+we can see the encrypt function just shuffles the flag. looks like we have to read all the code to know what this function is doing :sleeping: Ok! if you think about it 🤔 the encrypt function is 
 just shuffling the given list. so it might be possible that this process goes around a loop this means after some round we could have the flag so let's try it:
 
 ```python
