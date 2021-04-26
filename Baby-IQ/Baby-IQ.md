@@ -99,7 +99,7 @@ and:
 tvFS4Co_t_e}ml_r3sTn3F3_gsl1ki{h75ti
 ```
 
-we can see the encrypt function just shuffles the flag. looks like we have to read all the code to know what this function is doing but wait! if you think about it 🤔 the encrypt function is 
+we can see the encrypt function just shuffles the flag. looks like we have to read all the code to know what this function is doing :sleeping: but wait! if you think about it 🤔 the encrypt function is 
 just shuffling the given list. so it might be possible that this process goes around a loop this means after some round we could have the flag so let's try it:
 
 ```python
