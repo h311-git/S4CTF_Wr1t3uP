@@ -116,4 +116,5 @@ S4CTF{B4bY__f0r3n5iCS___7AsK_f0R_WaRMUP_blah_blah!!!}
 ```
 Lucky us! but what about `10`? look at the characters at index `38` and `39` of flag array i mean `f` and `_` which of these characters belong to position `10` of the flag? i hope you guessed right yeah `_` (if you look at the flag three `_` are following each other right?). finally by fixing this position and running the script above again:
 
+## Flag
 the flag is:`S4CTF{B4bY___f0r3n5iCS___7AsK_f0R_WaRMUP_blah_blah!!!}`
