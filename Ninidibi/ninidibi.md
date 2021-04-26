@@ -53,7 +53,7 @@ And the result:
 00000fc0  45 52 29 35 01 06 17 15  15 01 4f 74 61 62 6c 65  |ER)5......Otable|
 ...
 ```
-this is the first lines of the file content. at first glance you can guess this is related to a DB file(although the file name speak for itself:)) because of that `CREATE TABLE ...` line. considering the file size we can guess this file is a SQLite database file. so let's check it out.
+this is the first lines of the file content. at first glance you can guess this is related to a DB file because of that `CREATE TABLE ...` line(although the file name speak for itself:)). considering the file size we can guess this file is a SQLite database file. so let's check it out.
 
 SQLite file signature:
 ```text
